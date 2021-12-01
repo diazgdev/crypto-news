@@ -1,8 +1,14 @@
-<h1>Hello world!</h1>
-
+<div class="row">
 <% for x in @news["Data"] %>
-  <img src="<%= x["imageurl"]%>" alt=""> <br>
-  <strong> <%= x["title"] %> </strong> <br>
-  <%= x["body"] %> <br>
-  <a href="<%= x["url"]%>">Read more...</a><br><hr>
+  <div class="col-sm">
+    <div class="card my-3 mx-auto" style="width: 18rem;">
+    <img src="<%= x["imageurl"]%>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= x["title"] %></h5>
+        <p class="card-text"><%= x["body"].truncate(200) %></p>
+        <a href="<%= x["url"]%>" class="btn btn-secondary">Read more</a>
+      </div>
+    </div>
+  </div>
 <% end %>
+</div>
