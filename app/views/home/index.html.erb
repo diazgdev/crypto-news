@@ -1,3 +1,14 @@
+<div>
+<% @prices["DISPLAY"].each do |key, value| %>
+  <%= key %> - <%= value["USD"]["PRICE"] %> <br>
+  24h high: <%= value["USD"]["HIGHDAY"] %> <br>
+  24h low: <%= value["USD"]["LOWDAY"] %> <br>
+  Marketcap: <%= value["USD"]["MKTCAP"] %> <<br> <br>
+<% end %>
+</div>
+
+<% @prices["DISPLAY"] %>
+
 <div class="row">
 <% for x in @news["Data"] %>
   <div class="col-sm">
@@ -5,7 +16,7 @@
     <img src="<%= x["imageurl"]%>" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title"><%= x["title"] %></h5>
-        <p class="card-text"><%= x["body"].truncate(200) %></p>
+        class="card-text"><%= x["body"].truncate(150) %></>
         <a href="<%= x["url"]%>" class="btn btn-secondary">Read more</a>
       </div>
     </div>
