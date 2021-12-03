@@ -1,13 +1,29 @@
-<div>
-<% @prices["DISPLAY"].each do |key, value| %>
-  <%= key %> - <%= value["USD"]["PRICE"] %> <br>
-  24h high: <%= value["USD"]["HIGHDAY"] %> <br>
-  24h low: <%= value["USD"]["LOWDAY"] %> <br>
-  Marketcap: <%= value["USD"]["MKTCAP"] %> <<br> <br>
-<% end %>
-</div>
+<%# Table to show each crypto currency information %>
 
-<% @prices["DISPLAY"] %>
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">24h Low</th>
+      <th scope="col">24h High</th>
+      <th scope="col">Market Cap</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @prices["DISPLAY"].each do |key, value| %>
+    <tr>
+      <th scope="row"><%= key %></th>
+      <td><%= value["USD"]["PRICE"] %></td>
+      <td><%= value["USD"]["HIGHDAY"] %></td>
+      <td><%= value["USD"]["LOWDAY"] %></td>
+      <td><%= value["USD"]["MKTCAP"] %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%# Cyrpto News from Crypto Compare API %>
 
 <div class="row">
 <% for x in @news["Data"] %>
